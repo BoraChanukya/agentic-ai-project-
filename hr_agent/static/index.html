@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NexusHR Enterprise | Autonomous Policy & Escalation Suite</title>
+  <meta name="description" content="Autonomous Enterprise HR Policy Agent featuring 4-step policy triaging, verified clause retrieval, and human specialist escalation.">
+
+  <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="nexus-app">
+    
+    <!-- Top Executive Navigation Bar -->
+    <header class="nexus-header">
+      <div class="header-container">
+        
+        <!-- Brand Identity -->
+        <div class="brand-group">
+          <div class="brand-logo-mark">
+            <svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+              <circle cx="9" cy="7" r="4"></circle>
+              <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+              <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+            </svg>
+          </div>
+          <div class="brand-text">
+            <span class="brand-name">Nexus<span class="brand-accent">HR</span></span>
+            <span class="brand-pill">Enterprise Suite</span>
+          </div>
+        </div>
+
+        <!-- Header Controls & Actions -->
+        <div class="header-controls">
+          <!-- Local AI Engine Status Badge -->
+          <div id="system-status-badge" class="engine-badge badge-checking" title="Checking local engine telemetry...">
+            <span class="status-indicator"></span>
+            <span id="status-text" class="status-label">Connecting engine...</span>
+          </div>
+
+          <!-- Compliance Analytics Modal Button -->
+          <button id="metrics-btn" class="nav-control-btn" title="Open Enterprise Performance & Compliance Analytics">
+            <svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="18" y1="20" x2="18" y2="10"></line>
+              <line x1="12" y1="20" x2="12" y2="4"></line>
+              <line x1="6" y1="20" x2="6" y2="14"></line>
+            </svg>
+            <span>Audit & Metrics</span>
+          </button>
+
+          <!-- Theme Toggle Switch -->
+          <button id="theme-toggle-btn" class="nav-icon-btn" aria-label="Toggle dark mode" title="Toggle theme">
+            <svg id="theme-icon-sun" class="hidden" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="theme-icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+          </button>
+
+          <!-- New Inquiry Button -->
+          <button id="clear-chat-btn" class="nav-action-btn" title="Start a fresh workforce policy session">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="5" x2="12" y2="19"></line>
+              <line x1="5" y1="12" x2="19" y2="12"></line>
+            </svg>
+            <span>New Inquiry</span>
+          </button>
+        </div>
+
+      </div>
+    </header>
+
+    <!-- 4-Stage Autonomous Pipeline Banner -->
+    <div class="pipeline-ribbon">
+      <div class="pipeline-container">
+        <div class="pipeline-label">Autonomous 4-Step Pipeline:</div>
+        <div class="pipeline-steps" id="pipeline-steps">
+          <div class="pipe-step" id="pipe-step-1">
+            <span class="step-badge">1</span>
+            <span class="step-text">Semantic Retrieval</span>
+          </div>
+          <span class="pipe-separator">➔</span>
+          <div class="pipe-step" id="pipe-step-2">
+            <span class="step-badge">2</span>
+            <span class="step-text">Policy Triaging</span>
+          </div>
+          <span class="pipe-separator">➔</span>
+          <div class="pipe-step" id="pipe-step-3">
+            <span class="step-badge">3</span>
+            <span class="step-text">Grounded Answer</span>
+          </div>
+          <span class="pipe-separator pipe-or">or</span>
+          <div class="pipe-step pipe-escalate" id="pipe-step-4">
+            <span class="step-badge">4</span>
+            <span class="step-text">HR Escalation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Main Workspace Console -->
+    <main class="nexus-viewport" id="chat-viewport">
+      <div class="nexus-thread" id="chat-thread">
+        
+        <!-- Welcome Screen -->
+        <div class="nexus-welcome" id="welcome-banner">
+          <div class="welcome-top-pill">
+            <span class="pill-dot"></span>
+            <span>Enterprise PeopleOps Intelligence Hub</span>
+          </div>
+
+          <h1 class="welcome-title">How can <span class="nexus-gradient">NexusHR</span> assist you today?</h1>
+          <p class="welcome-subtitle">Ask questions regarding leave allowances, medical certificates, healthcare benefits, or test automated policy escalation dispatch.</p>
+
+          <!-- Executive Policy Inquiry Cards -->
+          <div class="inquiry-grid">
+            <button class="inquiry-card prompt-chip" data-query="How many days of annual leave are available and what is the notice period?">
+              <div class="card-icon-tag">🌴 Leave</div>
+              <span class="card-title">Annual Leave & Accrual</span>
+              <span class="card-desc">20 days/year allowance, accrual timeline, and mandatory 2-week advance notice.</span>
+            </button>
+
+            <button class="inquiry-card prompt-chip" data-query="What is the parental leave duration and what proof is required?">
+              <div class="card-icon-tag">👶 Parental</div>
+              <span class="card-title">Parental Leave Policy</span>
+              <span class="card-desc">12 weeks 100% paid leave with birth or legal adoption certificates.</span>
+            </button>
+
+            <button class="inquiry-card prompt-chip" data-query="Is medical documentation required for sick leave?">
+              <div class="card-icon-tag">🩺 Sick Leave</div>
+              <span class="card-title">Sick Leave Protocols</span>
+              <span class="card-desc">10-day allowance and mandatory medical note after 3 consecutive days.</span>
+            </button>
+
+            <button class="inquiry-card prompt-chip" data-query="When do full-time employees become eligible for health insurance and 401(k) matching?">
+              <div class="card-icon-tag">🏥 Benefits</div>
+              <span class="card-title">Health & 401(k) Eligibility</span>
+              <span class="card-desc">30-day continuous service waiting period, medical plan & retirement matching.</span>
+            </button>
+
+            <button class="inquiry-card prompt-chip escalation-trigger-card" data-query="Can I apply for an extended unpaid sabbatical for personal reasons?">
+              <div class="card-icon-tag tag-escalation">⚡ Escalation Test</div>
+              <span class="card-title">Unpaid Sabbatical Request</span>
+              <span class="card-desc">Simulates discretionary policy routing directly to a Human HR Specialist.</span>
+            </button>
+
+            <button class="inquiry-card prompt-chip" data-query="How many days of unused annual leave can I carry over into next year?">
+              <div class="card-icon-tag">🗓️ Rollover</div>
+              <span class="card-title">Leave Carryover Limitations</span>
+              <span class="card-desc">Maximum 5 days rollover into Q1 (must be consumed by March 31).</span>
+            </button>
+          </div>
+        </div>
+
+        <!-- Dynamic Message Stream -->
+        <div id="messages-stream" class="messages-stream"></div>
+
+        <!-- Animated Triaging & Processing Indicator -->
+        <div id="typing-indicator" class="typing-indicator hidden" aria-live="polite">
+          <div class="processing-card">
+            <div class="spin-ring"></div>
+            <div class="processing-info">
+              <span class="processing-title">Agent Processing Query</span>
+              <span class="processing-desc">Retrieving policy clauses & triaging eligibility...</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </main>
+
+    <!-- Bottom Input Command Console -->
+    <footer class="nexus-input-section">
+      <div class="input-panel-box">
+        <form id="chat-form" class="nexus-form">
+          <textarea
+            id="user-input"
+            rows="1"
+            placeholder="Inquire about company leave policies, medical certificates, healthcare benefits, or sabbaticals..."
+            aria-label="HR Inquiry Input"
+            required
+          ></textarea>
+
+          <button type="submit" id="send-btn" class="nexus-send-btn" title="Send (Enter)" aria-label="Send Inquiry">
+            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="12" y1="19" x2="12" y2="5"></line>
+              <polyline points="5 12 12 5 19 12"></polyline>
+            </svg>
+          </button>
+        </form>
+
+        <div class="input-meta-bar">
+          <div class="meta-item">🔒 100% On-Premise Ollama Execution</div>
+          <span class="meta-separator">•</span>
+          <div class="meta-item">Autonomous Human-in-the-Loop Triaging</div>
+          <span class="meta-separator">•</span>
+          <div class="meta-item">Zero Cloud Data Retention</div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Enterprise Performance & Audit Metrics Modal -->
+    <div id="metrics-modal" class="modal-backdrop hidden" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-head">
+          <div class="modal-title-wrap">
+            <div class="modal-tag">Enterprise AI Governance</div>
+            <h3 class="modal-heading">Workforce AI Benchmark & Compliance Dashboard</h3>
+            <p class="modal-sub">Empirical evaluation metrics, reliability formulas, and risk audit standards</p>
+          </div>
+          <button id="close-modal-btn" class="modal-dismiss-btn" aria-label="Close dialog">&times;</button>
+        </div>
+
+        <div class="modal-content" id="metrics-modal-body">
+          
+          <!-- KPI Metrics Row -->
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-badge badge-green">Passed Benchmark</div>
+              <div class="kpi-val">92.0%</div>
+              <div class="kpi-lbl">Task Success Rate</div>
+              <p class="kpi-sub">184 out of 200 standardized employee queries answered correctly with grounded citations.</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-badge badge-blue">Goal: 95.0%</div>
+              <div class="kpi-val">+6 Wins</div>
+              <div class="kpi-lbl">Optimization Target</div>
+              <p class="kpi-sub">Only 6 additional correct answers needed out of 200 to surpass 95% threshold.</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-badge badge-amber">Compliance Focus</div>
+              <div class="kpi-val">3.2%</div>
+              <div class="kpi-lbl">Hallucination Frequency</div>
+              <p class="kpi-sub">8 ungrounded claims identified in 250 test claims (strict target is &lt; 2.0%).</p>
+            </div>
+          </div>
+
+          <!-- Economics & Pipeline Reliability -->
+          <div class="metrics-section-heading">Operational Economics & Multi-Stage Reliability</div>
+          <div class="kpi-grid">
+            <div class="kpi-card">
+              <div class="kpi-badge badge-green">$0 Cloud Spend</div>
+              <div class="kpi-val">$0.00</div>
+              <div class="kpi-lbl">Cost Per Inference</div>
+              <p class="kpi-sub">Local Ollama inference eliminates API SaaS bills ($3.00/query cloud equivalent savings).</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-badge badge-neutral">Chained Math</div>
+              <div class="kpi-val">81.45%</div>
+              <div class="kpi-lbl">4-Step Workflow Reliability</div>
+              <p class="kpi-sub">4 sequential AI steps operating at 95% individual reliability: 0.95⁴ = 81.45% composite.</p>
+            </div>
+
+            <div class="kpi-card">
+              <div class="kpi-badge badge-blue">Audit Safety</div>
+              <div class="kpi-val">10 Max</div>
+              <div class="kpi-lbl">Allowed Errors (500 Samples)</div>
+              <p class="kpi-sub">Strict 2.0% maximum risk tolerance policy limit across 500 audited outputs.</p>
+            </div>
+          </div>
+
+          <!-- Continuous Improvement Pipeline -->
+          <div class="metrics-section-heading">Autonomous Quality Assurance Lifecycle</div>
+          <div class="lifecycle-bar">
+            <div class="lifecycle-node">
+              <span class="node-num">1</span>
+              <span class="node-name">Evaluate</span>
+            </div>
+            <span class="node-arrow">➔</span>
+            <div class="lifecycle-node">
+              <span class="node-num">2</span>
+              <span class="node-name">Deploy</span>
+            </div>
+            <span class="node-arrow">➔</span>
+            <div class="lifecycle-node">
+              <span class="node-num">3</span>
+              <span class="node-name">Monitor</span>
+            </div>
+            <span class="node-arrow">➔</span>
+            <div class="lifecycle-node">
+              <span class="node-num">4</span>
+              <span class="node-name">Refine</span>
+            </div>
+            <span class="node-arrow">➔</span>
+            <div class="lifecycle-node">
+              <span class="node-num">5</span>
+              <span class="node-name">Re-Audit</span>
+            </div>
+          </div>
+
+          <div class="compliance-note">
+            🛡️ <strong>Governance Protocol:</strong> All automated policy responses are bound to ground-truth documents. High-stakes requests and policy ambiguities are immediately routed to human HR specialists.
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>

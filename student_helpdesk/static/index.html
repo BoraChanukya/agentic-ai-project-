@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CampusCore AI | Academic & Student Intelligence Portal</title>
+  <meta name="description" content="Autonomous offline academic assistant powered by local AI. Grounded answers on regulations, attendance, certificates, and campus services.">
+
+  <!-- Typography: Plus Jakarta Sans & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+  <div class="campus-layout">
+    
+    <!-- Left Navigation Sidebar -->
+    <aside class="campus-sidebar" id="sidebar">
+      <div class="sidebar-brand">
+        <div class="brand-crest">
+          <svg viewBox="0 0 24 24" width="22" height="22" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+            <path d="M2 17l10 5 10-5"></path>
+            <path d="M2 12l10 5 10-5"></path>
+          </svg>
+        </div>
+        <div class="brand-meta">
+          <span class="brand-name">CampusCore</span>
+          <span class="brand-subtitle">Student AI Hub</span>
+        </div>
+      </div>
+
+      <div class="sidebar-section">
+        <button id="new-chat-btn" class="sidebar-action-btn" title="Start a new student inquiry">
+          <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>New Inquiry</span>
+        </button>
+      </div>
+
+      <!-- Quick Topics Navigation -->
+      <div class="sidebar-section">
+        <div class="section-label">Knowledge Categories</div>
+        <nav class="topic-nav">
+          <button class="topic-btn active" data-category="all">
+            <span class="topic-icon">🎓</span>
+            <span class="topic-name">All Regulations</span>
+          </button>
+          <button class="topic-btn" data-category="certificates">
+            <span class="topic-icon">📜</span>
+            <span class="topic-name">Certificates & TC</span>
+          </button>
+          <button class="topic-btn" data-category="attendance">
+            <span class="topic-icon">⏱️</span>
+            <span class="topic-name">Attendance & Leave</span>
+          </button>
+          <button class="topic-btn" data-category="exams">
+            <span class="topic-icon">📝</span>
+            <span class="topic-name">Exams & Grading</span>
+          </button>
+          <button class="topic-btn" data-category="facilities">
+            <span class="topic-icon">📚</span>
+            <span class="topic-name">Library & Campus</span>
+          </button>
+        </nav>
+      </div>
+
+      <!-- Campus Quick Desk Info -->
+      <div class="sidebar-section campus-info-card">
+        <div class="info-card-header">
+          <span class="info-icon">📍</span>
+          <span class="info-title">Student Affairs Desk</span>
+        </div>
+        <p class="info-text">Administrative Block, Room 102</p>
+        <div class="info-meta">
+          <span>Mon – Fri • 9:00 AM – 5:00 PM</span>
+        </div>
+      </div>
+
+      <!-- Engine Telemetry / Status Footer -->
+      <div class="sidebar-footer">
+        <div id="system-status-badge" class="telemetry-badge status-checking" title="Connecting to local AI engine...">
+          <span class="pulse-dot"></span>
+          <span id="status-text" class="status-label">Connecting engine...</span>
+        </div>
+
+        <div class="footer-controls">
+          <button id="theme-toggle-btn" class="theme-switch-btn" title="Toggle color mode" aria-label="Toggle theme">
+            <svg id="theme-icon-sun" class="hidden" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="5"></circle>
+              <line x1="12" y1="1" x2="12" y2="3"></line>
+              <line x1="12" y1="21" x2="12" y2="23"></line>
+              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+              <line x1="1" y1="12" x2="3" y2="12"></line>
+              <line x1="21" y1="12" x2="23" y2="12"></line>
+              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+            </svg>
+            <svg id="theme-icon-moon" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+            </svg>
+            <span class="theme-text">Theme</span>
+          </button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Workspace Stage -->
+    <main class="campus-main">
+      <!-- Top Stage Bar -->
+      <header class="stage-header">
+        <button id="mobile-sidebar-toggle" class="mobile-toggle-btn" aria-label="Toggle sidebar">
+          <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="3" y1="12" x2="21" y2="12"></line>
+            <line x1="3" y1="6" x2="21" y2="6"></line>
+            <line x1="3" y1="18" x2="21" y2="18"></line>
+          </svg>
+        </button>
+
+        <div class="stage-title-wrap">
+          <h2 class="stage-title">Academic & Campus Intelligence</h2>
+          <span class="stage-badge">100% Offline RAG</span>
+        </div>
+
+        <div class="stage-actions">
+          <button id="clear-chat-btn" class="stage-btn" title="Clear current session">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="3 6 5 6 21 6"></polyline>
+              <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+            </svg>
+            <span>Reset</span>
+          </button>
+        </div>
+      </header>
+
+      <!-- Chat Viewport -->
+      <div class="chat-viewport" id="chat-viewport">
+        <div class="chat-thread" id="chat-thread">
+          
+          <!-- Modern Welcome Hero -->
+          <div class="hero-container" id="welcome-banner">
+            <div class="hero-badge">
+              <span class="badge-icon">⚡</span>
+              <span>Grounded Knowledge Base • Local AI</span>
+            </div>
+            <h1 class="hero-headline">Welcome to <span class="gradient-text">CampusCore AI</span></h1>
+            <p class="hero-subline">Instant answers to academic questions, attendance rules, document clearances, and official campus policies.</p>
+
+            <!-- Categorized Suggestion Grid -->
+            <div class="prompts-showcase">
+              <div class="prompts-label">Frequently Consulted Regulations:</div>
+              <div class="prompt-chips-grid">
+                <button class="prompt-chip-card" data-category="certificates" data-query="What is the procedure for applying for a bonafide certificate?">
+                  <div class="chip-top">
+                    <span class="chip-tag">Certificates</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Bonafide Certificate Procedure</span>
+                  <span class="chip-desc">Application workflow, issuance fee, and processing room</span>
+                </button>
+
+                <button class="prompt-chip-card" data-category="facilities" data-query="What are the library timings and borrowing rules?">
+                  <div class="chip-top">
+                    <span class="chip-tag">Library</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Library Hours & Book Limits</span>
+                  <span class="chip-desc">Circulation limits, renewals, and working hours</span>
+                </button>
+
+                <button class="prompt-chip-card" data-category="attendance" data-query="What attendance percentage is required, and what happens if it falls below 65%?">
+                  <div class="chip-top">
+                    <span class="chip-tag">Regulations</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Attendance & Debarment</span>
+                  <span class="chip-desc">75% rule, medical condonation, and debarment consequences</span>
+                </button>
+
+                <button class="prompt-chip-card" data-category="exams" data-query="What documents are required for examination registration?">
+                  <div class="chip-top">
+                    <span class="chip-tag">Exams</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Exam Registration Prerequisites</span>
+                  <span class="chip-desc">Hall ticket clearance, fee receipts, and deadline checks</span>
+                </button>
+
+                <button class="prompt-chip-card" data-category="exams" data-query="Explain the grading system and minimum CGPA needed for graduation.">
+                  <div class="chip-top">
+                    <span class="chip-tag">Grading</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Grading Scale & Degree Criteria</span>
+                  <span class="chip-desc">10-point scale breakdown and minimum passing threshold</span>
+                </button>
+
+                <button class="prompt-chip-card" data-category="certificates" data-query="What is the procedure to obtain a Transfer Certificate (TC)?">
+                  <div class="chip-top">
+                    <span class="chip-tag">Administrative</span>
+                    <span class="chip-arrow">↗</span>
+                  </div>
+                  <span class="chip-title">Transfer Certificate (TC)</span>
+                  <span class="chip-desc">Clearance slips, departmental no-dues, and issuance time</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Dynamic Chat Message Rows -->
+          <div id="messages-stream" class="messages-stream"></div>
+
+          <!-- Loading Indicator -->
+          <div id="typing-indicator" class="typing-indicator hidden" aria-live="polite">
+            <div class="typing-card">
+              <div class="wave-dots">
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <span class="typing-text">Searching campus knowledge base & synthesizing answer...</span>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- Bottom Interactive Command Bar -->
+      <footer class="command-bar-wrapper">
+        <div class="command-bar-box">
+          <form id="chat-form" class="command-input-form">
+            <textarea
+              id="user-input"
+              rows="1"
+              placeholder="Ask an academic question (e.g., bonafide certificate, attendance criteria, exam rules)..."
+              aria-label="Student Query Input"
+              required
+            ></textarea>
+
+            <button type="submit" id="send-btn" class="command-send-btn" title="Send Query (Enter)" aria-label="Send query">
+              <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="22" y1="2" x2="11" y2="13"></line>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
+              </svg>
+            </button>
+          </form>
+
+          <div class="command-footnote">
+            <span class="footnote-item">CampusCore AI Assistant</span>
+            <span class="footnote-bullet">•</span>
+            <span class="footnote-item">100% Local Inference (Ollama)</span>
+            <span class="footnote-bullet">•</span>
+            <span class="footnote-item">Zero Cloud Data Transmission</span>
+          </div>
+        </div>
+      </footer>
+    </main>
+
+  </div>
+
+  <script src="/static/app.js"></script>
+</body>
+</html>
